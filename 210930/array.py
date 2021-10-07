@@ -111,34 +111,41 @@
 #
 # print(binarySearch(18))
 
-list = [1,3,5,6,2,4,7,8]
+# list = [1,3,5,6,2,4,7,8]
+#
+# def merge(list1, list2):
+#     result = []
+#     while True:
+#         if len(list1) == 0:
+#             result.extend(list2)
+#             break
+#         elif len(list2) == 0:
+#             result.extend(list1)
+#             break
+#         elif list1[0] < list2[0]:
+#             result.append(list1[0])
+#             del list1[0]
+#         elif list2[0] < list1[0]:
+#             result.append(list2[0])
+#             del list2[0]
+#
+#     return result
+#
+# def merge_sort(list3):
+#     if len(list3) == 1:
+#         return list3
+#
+#     list1 = merge_sort([list3[i] for i in range(0, len(list3) // 2)])
+#     # print('list1',list1)
+#     list2 = merge_sort([list3[i] for i in range(len(list3)//2, len(list3))])
+#     # print('list2',list2)
+#     # print('-----------------')
+#     merge(list1, list2)
+#
+# print(merge_sort(list))
+#
+# # print(merge([list[i] for i in range(len(list)//2, len(list))],[list[i] for i in range(0, len(list) // 2)]))
 
-def merge(list1, list2):
-    result = []
-    while True:
-        if len(list1) == 0:
-            result.extend(list2)
-            break
-        elif len(list2) == 0:
-            result.extend(list1)
-            break
-        elif list1[0] < list2[0]:
-            result.append(list1[0])
-            del list1[0]
-        elif list2[0] < list1[0]:
-            result.append(list2[0])
-            del list2[0]
-
-    return result
-
-def merge_sort(list):
-    if len(list) == 1:
-        return list
-
-    list1 = merge_sort([list[i] for i in range(0, len(list) // 2)])
-    list2 = merge_sort([list[i] for i in range(len(list)//2, len(list))])
-    merge(list1, list2)
-
-print(merge_sort(list))
-
-print([list[i] for i in range(len(list)//2, len(list))])
+list = [1,2]
+if list.pop() == 2:
+    print(list)
