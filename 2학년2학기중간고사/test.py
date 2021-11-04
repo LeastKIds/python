@@ -373,22 +373,199 @@
 #         continue
 
 
-def merge_sort(list):
-    if len(list)<=1:
-        return list
+# def merge_sort(list):
+#     if len(list)<=1:
+#         return list
+#
+#     mid = len(list)//2
+#     # print(merge_sort(list[:mid]))
+#     print(merge_sort(list[mid-1:]))
+#     # print(mid)
+#
+#
+# def merge_sort(arr):
+#     if len(arr) < 2:
+#         return arr
+#
+#     mid = len(arr) // 2
+#     low_arr = merge_sort(arr[:mid])
+#     high_arr = merge_sort(arr[mid:])
+# list = [6, 5, 3]
+# merge_sort(list)
 
-    mid = len(list)//2
-    # print(merge_sort(list[:mid]))
-    print(merge_sort(list[mid-1:]))
-    # print(mid)
+# def merge_sort(listL):
+#     if len(listL) == 1:
+#         return listL
+#
+#     mid = len(listL) // 2
+#     leftMerge = merge_sort(listL[:mid])
+#     rightMerge = merge_sort(listL[mid:])
+#     return merge(leftMerge, rightMerge)
+#
+#
+# def merge(leftMerge, rightMerge):
+#     result = []
+#     while len(leftMerge) > 0 or len(rightMerge) > 0:
+#
+#         if len(leftMerge) > 0 and len(rightMerge) > 0:
+#             if leftMerge[0] > rightMerge[0]:
+#                 result.append(rightMerge[0])
+#                 rightMerge = rightMerge[1:]
+#             elif leftMerge[0] < rightMerge[0]:
+#                 result.append(leftMerge[0])
+#                 leftMerge = leftMerge[1:]
+#         elif len(leftMerge) > 0:
+#             result.append(leftMerge[0])
+#             leftMerge = leftMerge[1:]
+#         elif len(rightMerge) > 0:
+#             result.append(rightMerge[0])
+#             rightMerge = rightMerge[1:]
+#
+#     return result
+#
+#
+#
+#
+# list = [4,2,1,6,9,19,29,15]
+# # list = [4,2,1]
+# print(merge_sort(list))
 
+# def print_itmes(param):
+#     print(param)
+#     for p in param:
+#         print(p)
+#
+# print_itmes((i for i in range(3)))
 
-def merge_sort(arr):
-    if len(arr) < 2:
-        return arr
+# def my_range(*list):
+#     start = 0
+#     step = 1
+#     end = 0
+#     if len(list) == 1:
+#         end = list[0]
+#     else:
+#         start = list[0]
+#         end = list[1]
+#         if len(list) == 3:
+#             step = list[2]
+#
+#     while start < end:
+#         print(start, end='')
+#         start += step
+#     print()
+#
+# my_range(5)
+# my_range(2,5)
+# my_range(1,10,2)
 
-    mid = len(arr) // 2
-    low_arr = merge_sort(arr[:mid])
-    high_arr = merge_sort(arr[mid:])
-list = [6, 5, 3]
-merge_sort(list)
+# str = 'hello my friend'
+# split_default = str.split()
+# split_char = str.split('e')
+#
+# str_list = list(str)
+# print('*'.join(split_default))
+# print('-'.join(split_char))
+
+# set1 = set([1,2,3,4])
+# print(set1)
+
+# def merge_sort(listL):
+#     if len(listL) <= 1:
+#         return listL
+#     mid = len(listL) // 2
+#     leftMerge = merge_sort(listL[:mid])
+#     rightMerge = merge_sort(listL[mid:])
+#     return merge(leftMerge, rightMerge)
+#
+# def merge(leftMerge, rightMerge):
+#     result = []
+#     while len(leftMerge) > 0 or len(rightMerge):
+#         if len(leftMerge) > 0 and len(rightMerge):
+#             if leftMerge[0] > rightMerge[0]:
+#                 result.append(rightMerge[0])
+#                 rightMerge = rightMerge[1:]
+#             else:
+#                 result.append(leftMerge[0])
+#                 leftMerge = leftMerge[1:]
+#         elif len(leftMerge) > 0 and len(rightMerge) <= 0:
+#             result.append(leftMerge[0])
+#             leftMerge = leftMerge[1:]
+#         elif len(rightMerge) > 0 and len (leftMerge) <= 0:
+#             result.append(rightMerge[0])
+#             rightMerge = rightMerge[1:]
+#
+#     return result
+#
+# list = [4,1,6,7,13,16,11,20,19]
+# # print(merge_sort(list))
+#
+# def merge_sort(listL, low, high):
+#     if low >= high:
+#         return
+#     mid = (low + high) // 2
+#     merge_sort(listL, low, mid)
+#     merge_sort(listL, mid+1, high)
+#     merge(listL, low, mid, high)
+#
+# def merge(listL, low, mid ,high):
+#     l = low
+#     h = high
+#     r = mid+1
+#     result = []
+#     while l <= mid and h >= r:
+#         print(result)
+#         if listL[l] < listL[r]:
+#             result.append(listL[l])
+#             l += 1
+#         else:
+#             result.append(listL[r])
+#             r += 1
+#
+#     print('end')
+#     if l > mid:
+#         result.extend(listL[r:h+1])
+#     elif r > h:
+#         result.extend(listL[l:mid+1])
+#
+#     list[low:high+1] = result
+#     return list
+#
+# print(merge_sort(list, 0, 8))
+
+def merge_sort(list, low, high):
+    if low >= high:
+        return
+    mid = (low + high) // 2
+    merge_sort(list, low, mid)
+    merge_sort(list, mid+1, high)
+    merge(list, low, mid, high)
+
+def merge(list, low, mid, high):
+    l = low
+    r = mid + 1
+    temp = []
+    while l <= mid and r <= high:
+        if list[l] < list[r]:
+            temp.append(list[l])
+            l += 1
+        else:
+            temp.append(list[r])
+            r += 1
+    if l > mid:
+        temp.extend(list[r:high+1])
+    elif r > high:
+        temp.extend(list[l:mid+1])
+    list[low:high+1] = temp
+    print(list)
+
+list = [8,7,6,5,4,3,2,1]
+merge_sort(list, 0, 7)
+
+# def sum_int(*params):
+#     sum = 0
+#     for p in params:
+#         if type(p) == bool:
+#             print(p)
+#
+#
+# sum_int(1,1,1.0,'1',True)
